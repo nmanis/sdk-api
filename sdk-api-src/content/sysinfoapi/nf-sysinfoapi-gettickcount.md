@@ -71,7 +71,7 @@ The return value is the number of milliseconds that have elapsed since the syste
 The resolution of the <b>GetTickCount</b> function is limited to the resolution of the system timer, which is typically in the range of  10 milliseconds to 16 milliseconds. The resolution of the <b>GetTickCount</b> function is not affected by adjustments made by the 
 <a href="/windows/desktop/api/sysinfoapi/nf-sysinfoapi-getsystemtimeadjustment">GetSystemTimeAdjustment</a> function.
 
-The elapsed time is stored as a <b>DWORD</b> value. Therefore, the time will wrap around to zero if the system is run continuously for 49.7 days. To avoid this problem, use the <a href="/windows/desktop/api/sysinfoapi/nf-sysinfoapi-gettickcount64">GetTickCount64</a> function. Otherwise, check for an overflow condition when comparing times.
+The elapsed time is stored as a <b>DWORD</b> value. Therefore, the time will wrap around to zero if the system is run continuously for 49.7 days. After 776 days, the wrap amount will be different than zero.  To avoid this problem, use the <a href="/windows/desktop/api/sysinfoapi/nf-sysinfoapi-gettickcount64">GetTickCount64</a> function. Otherwise, check for an overflow condition when comparing times. 
 
 If you need a higher resolution timer, use a 
 <a href="/windows/desktop/Multimedia/multimedia-timers">multimedia timer</a> or a 
